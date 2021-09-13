@@ -14,7 +14,7 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-    <div class="card h-100 text-center p-3 bg-warning rounded-3">
+    <div class="card h-100 text-center p-3 card-design rounded-3">
       <div class="bg-white mx-auto px-5 py-4 my-3 rounded-3">
           <img id="image-file" class="card-img-top product-image" src=${image}></img>
       </div>
