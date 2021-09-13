@@ -1,40 +1,54 @@
+// Load data from the api
 const loadProducts = () => {
+
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
-    .then((data) => showProducts(data));
+    .then((data) => showProducts(data))
+    .catch(error => window.alert("Oops! Server disconnected"));
+
 };
 loadProducts();
+
+
 
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
+
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    let sccc = `fas fa-star text-warning`;
-    console.log("valvd", sccc);
+
+    // put the fontawesome star class name in a varibale
+    let star = `fas fa-star text-warning`;
+
+    // creating card for every product
     div.classList.add("col");
     div.innerHTML = `
     <div class="card h-100 text-center p-3 card-design rounded-3" >
+
       <div class="bg-white mx-auto px-5 py-4 my-3 rounded-3">
           <img id="image-file" class="card-img-top product-image" src=${image}></img>
       </div>
-      <h4>${product.title}</h4>
+
+      <h5>${product.title}</h5>
+
       <div class="mt-auto">
-      <p>
-      <i class="${sccc}"></i> ${product.rating.rate}/5 (${product.rating.count})
-      </p>
-      <p id="titleCase">Category: ${product.category}</p>
-      <h2 class="text-muted">Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now bg-secondary text-white btn m-2"><i class="fas fa-cart-plus text-warning"></i> Add to cart</button>
-      <button id="details-btn" class="btn btn-primary my-2" onclick="loadSingleItem(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Details</button>
+          <p>
+          <i class="${star}"></i> ${product.rating.rate}/5 (${product.rating.count})
+          </p>
+          <p id="titleCase">Category : <span class="text-danger">${product.category}</span></p>
+          <h2 class="text-muted">Price: $ ${product.price}</h2>
+          <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now bg-secondary text-white btn m-2"><i class="fas fa-cart-plus text-warning"></i> Add to cart</button>
+          <button id="details-btn" class="btn button-color text-light my-2" onclick="loadSingleItem(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Details</button>
       <div>
-    </div>
-      `;
+    </div>`;
+
     document.getElementById("container-box").appendChild(div);
   }
 };
+
 
 let count = 0;
 const addToCart = (id, price) => {
@@ -46,6 +60,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+// take innerText value 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -95,58 +110,68 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
-// display single item
+// load single item data
 const loadSingleItem = id => {
   const url = `https://fakestoreapi.com/products/${id}`;
+
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displaySingleItem(data));
+    .then((data) => displaySingleItem(data))
+    .catch(error => window.alert("Oops! Server disconnected"));
+
 }
 
-
-
-
+// display select product details
 const displaySingleItem = data => {
   console.log(data.title);
   const containerForItem = document.getElementById('container-single-item');
+
   // clear inner content
   containerForItem.textContent = '';
+
   // set image url
   source = data.image;
+
+  // set ratings star
   const rating = data.rating.rate;
-  console.log(rating);
   const starArr = starCount(rating);
 
+  // create a card for single item
   const div = document.createElement('div');
   div.classList.add('card');
   div.innerHTML = `
             <img src=${source} class="card-img-top w-50 mx-auto py-4 image" alt="...">
             <button class="btn-close me-2 m-auto cross-btn p-2" data-bs-dismiss="modal"></button>
+
             <div class="card-body">
+
                 <h5 class="card-title">${data.title}</h5>
                 <p id="titleCase" class="card-text text-secondary">${data.category} </p>
                 <p class="card-text text-muted">${data.description}</p>
-                <div class="d-md-flex justify-content-md-between">
-                <p class="card-text"> <span class="text-danger fw-normal">Ratings :</span> <span class="text-dark"> ${data.rating.rate}</span> <br>
 
-                <span><i class="${starArr[0] ? starArr[0] : ''} text-warning"></i><i class="${starArr[1] ? starArr[1] : ''} text-warning"></i><i class="${starArr[2] ? starArr[2] : ''} text-warning"></i><i class="${starArr[3] ? starArr[3] : ''} text-warning"></i><i class="${starArr[4] ? starArr[4] : ''} text-warning"></i></span> <br>
-<span class="text-secondary">${data.rating.count} Person rated this product</span></p >
-  <h5 class="text-success fw-bold">Price: <span class="text-muted">$${data.price}</span></h5>
+                <div class="d-md-flex justify-content-md-between">
+                    <p class="card-text"> <span class="text-danger fw-normal">Ratings :</span> <span class="text-dark"> ${data.rating.rate}</span> 
+                    <br>
+                    <span><i class="${starArr[0] ? starArr[0] : ''} text-warning"></i><i class="${starArr[1] ? starArr[1] : ''} text-warning"></i><i class="${starArr[2] ? starArr[2] : ''} text-warning"></i><i class="${starArr[3] ? starArr[3] : ''} text-warning"></i><i class="${starArr[4] ? starArr[4] : ''} text-warning"></i></span> 
+                    <br>
+                    <span class="text-secondary">${data.rating.count} Person rated this product</span>
+                    </p>
+                    <h5 class="text-success fw-bold">Price: <span class="text-muted">$${data.price}</span></h5>
                 </div >
-  <div class="d-md-flex justify-content-md-end">
-    <a href="##" target="_blank" class="btn btn-warning"><i class="fas fa-cart-plus"></i> Add to Cart</a>
-  </div>
+                <div class="d-md-flex justify-content-md-end">
+                    <a href="##" target="_blank" class="btn btn-warning"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+                </div>
             </div >
-  `;
+            `;
+
   containerForItem.appendChild(div);
 }
 
-
+// calculate the number of star need to show according to ratings
 const starCount = number => {
 
   let ratingNumber = Math.floor(number);
   let remainNumber = (number - ratingNumber).toFixed(1) * 10;
-  console.log(ratingNumber, remainNumber);
   let count = 0;
 
   if (remainNumber === 0) {
