@@ -8,9 +8,12 @@
   <title>Fast Commerce</title>
   <link rel="stylesheet" href="./css/style.css" />
 
-  <!-- Latest compiled and minified CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/cfd69f1693.js" crossorigin="anonymous"></script>
+
+  <!-- bootstrap style -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
   <!-- google Montserrat  font  -->
@@ -21,21 +24,40 @@
 
 <body>
   <header></header>
+
+  <!-- search bar section -->
   <main class="main">
-    <div class="search-field">
-      <div class="search-box">
+    <section class="search-field py-3">
+      <!-- 
+        <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
         </button>
+      </div> 
+    
+    -->
+
+
+      <!-- Search field -->
+      <div class="input-group mx-auto my-3 search-box">
+        <input type="text" class="form-control" placeholder="Search your favorite product here..."
+          aria-label="Recipient's username" aria-describedby="button-addons">
+        <button class="btn bg-white border px-4" type="button" id="button-addons">
+          <div class="fs-5 text"><i class="fas fa-search"></i></i></div>
+        </button>
       </div>
-    </div>
-    <div class="row">
+    </section>
+
+
+    <div class="row my-5">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
         </div>
       </div>
+
+
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -63,7 +85,7 @@
               </tr>
               <tr>
                 <th>Delivery-Charge:</th>
-                <td>$ <span id="delivery-charge">20</span></td>
+                <td>$ <span id="delivery-charge">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
