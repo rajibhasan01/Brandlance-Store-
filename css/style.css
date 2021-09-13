@@ -2,6 +2,9 @@ body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
+.text-color{
+  color: rgb(204, 32, 2);
+}
 .search-field{
   background-image: url(../bg.jpg)
 }
@@ -109,6 +112,28 @@ h4, button{
   width: 150px;
   height: 150px;
 }
+
+.product-image-modal{
+  width: 5rem;
+  height: 10rem;
+}
+
+.cross-btn{ 
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 10px;
+    right: 0.5em;
+}
+
+.image{
+  transition: transform 1s;
+}
+
+.image:hover{
+  transform: scale(1.1);
+}
+
+
 .cart {
   width: 350px;
   /* border: 1px solid green; */
