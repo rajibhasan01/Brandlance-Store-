@@ -12,21 +12,28 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
+    div.classList.add("col");
+    div.innerHTML = `
+    <div class="card h-100 text-center p-3 bg-warning rounded-3">
+      <div class="bg-white mx-auto px-5 py-4 my-3 rounded-3">
+          <img id="image-file" class="card-img-top product-image" src=${image}></img>
       </div>
       <h4>${product.title}</h4>
-      <p><i class="fas fa-star text-warning"></i> ${product.rating.rate}/5 (${product.rating.count})</p>
+      <div class="mt-auto">
+      <p>
+      <i class="fas fa-star text-warning"></i> ${product.rating.rate}/5 (${product.rating.count})
+      </p>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <h2 >Price: $ ${product.price}</h2>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success m-2">Add to cart</button>
+      <button id="details-btn" class="btn btn-danger my-2">Details</button>
+      <div>
+    </div>
       `;
-    document.getElementById("all-products").appendChild(div);
+    document.getElementById("container-box").appendChild(div);
   }
 };
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;

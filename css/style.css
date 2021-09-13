@@ -21,6 +21,14 @@ body {
 .search-box{
   width: 25vw!important;
 }
+#image-file{
+  transition: transform 1s;
+}
+
+#image-file:hover{
+  transform: scale(1.2);
+
+}
 
 /* previous code */
 /* .search-field {
@@ -47,12 +55,13 @@ body {
 } */
 
 
+
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* border: 1px solid black; */
   text-align: center;
-  width: 100%;
+  width: 90%;
   margin: auto;
   align-items: center;
   justify-content: center;
@@ -60,6 +69,7 @@ body {
 .single-product {
   padding: 10px;
   transition: 0.6s;
+  margin: 5px;
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
@@ -110,6 +120,9 @@ body {
   }
 
 }
+
+
+
 
 
 
