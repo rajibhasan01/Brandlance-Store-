@@ -76,6 +76,11 @@ h5, button{
   height: 150px;
 }
 
+.product-image1 {
+  width: 150px!important;
+  max-height: 300px;
+}
+
 .product-image-modal{
   width: 5rem;
   height: 10rem;

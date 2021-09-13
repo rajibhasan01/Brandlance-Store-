@@ -146,14 +146,14 @@ const displaySingleItem = data => {
   const div = document.createElement('div');
   div.classList.add('card');
   div.innerHTML = `
-            <img src=${source} class="card-img-top w-50 mx-auto py-4 image" alt="...">
+            <img src=${source} class="card-img-top product-image1 mx-auto py-4 image" alt="...">
             <button class="btn-close me-2 m-auto cross-btn p-2" data-bs-dismiss="modal"></button>
 
             <div class="card-body">
 
                 <h5 class="card-title">${data.title}</h5>
                 <p id="titleCase" class="card-text text-secondary">${data.category} </p>
-                <p class="card-text text-muted">${data.description}</p>
+                <p class="card-text text-muted">${data.description.slice(0, 300)}</p>
 
                 <div class="d-md-flex justify-content-md-between">
                     <p class="card-text"> <span class="text-danger fw-normal">Ratings :</span> <span class="text-dark"> ${data.rating.rate}</span> 
@@ -162,7 +162,7 @@ const displaySingleItem = data => {
                     <br>
                     <span class="text-secondary">${data.rating.count} Person rated this product</span>
                     </p>
-                    <h5 class="text-success fw-bold">Price: <span class="text-muted">$${data.price}</span></h5>
+                    <h5 class="text-muted fw-bold pe-2">Price: <span class="text-success">$${data.price}</span></h5>
                 </div >
                 <div class="d-md-flex justify-content-md-end">
                     <a href="##" target="_blank" class="btn btn-warning"><i class="fas fa-cart-plus"></i> Add to Cart</a>
