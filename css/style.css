@@ -3,7 +3,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 .search-field{
-  background: rgb(0,25,35);
+  background-image: url(../bg.jpg)
 }
 
 .search-box button{
