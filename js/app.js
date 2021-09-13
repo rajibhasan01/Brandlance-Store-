@@ -147,7 +147,7 @@ const displaySingleItem = data => {
   div.classList.add('card');
   div.innerHTML = `
   <div class="card-design container">
-            <img src=${source} class="card-img-top product-image1 mx-auto py-4 image" alt="...">
+            <img src=${source} class="card-img-top product-image1 mx-auto py-4" alt="...">
             <button class="btn-close me-2 m-auto cross-btn p-2" data-bs-dismiss="modal"></button>
 
             <div class="card-body m-3">
