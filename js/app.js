@@ -20,8 +20,12 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
 
-    // put the fontawesome star class name in a varibale
-    let star = `fas fa-star text-warning`;
+    // set ratings star
+    const rating = product.rating.rate;
+    const starArr = starCount(rating);
+
+    // put blank star class in a variable
+    const starBlank = `far fa-star`;
 
     // creating card for every product
     div.classList.add("col");
@@ -35,11 +39,13 @@ const showProducts = (products) => {
       <h5>${product.title}</h5>
 
       <div class="mt-auto">
-          <p>
-          <i class="${star}"></i> ${product.rating.rate}/5 (${product.rating.count})
-          </p>
           <p id="titleCase">Category : <span class="text-danger">${product.category}</span></p>
-          <h2 class="text-muted">Price: $ ${product.price}</h2>
+          <h4 class="text-muted">Price : <span class="text-primary fw-normal">$${product.price}</span></h4>
+          <p class="text-warning">
+          <i class="${starArr[0] ? starArr[0] : `${starBlank}`}"></i><i class="${starArr[1] ? starArr[1] : `${starBlank}`}"></i><i class="${starArr[2] ? starArr[2] : `${starBlank}`}"></i><i class="${starArr[3] ? starArr[3] : `${starBlank}`}"></i><i class="${starArr[4] ? starArr[4] : `${starBlank}`}"></i><span class="text-muted"> ${product.rating.rate} </span> 
+          <br>
+          <span class="text-muted">(${product.rating.count} Reviews)</span>
+          </p>
           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now bg-secondary text-white btn m-2"><i class="fas fa-cart-plus text-warning"></i> Add to cart</button>
           <button id="details-btn" class="btn button-color text-light my-2" onclick="loadSingleItem(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Details</button>
       <div>
@@ -193,7 +199,7 @@ const starCount = number => {
       ratingNumber--;
     }
     else if (count === 1) {
-      starArray.push(`fas fa-star-half`)
+      starArray.push(`fas fa-star-half-alt`)
       count--;
     }
 
