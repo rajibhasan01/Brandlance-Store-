@@ -8,6 +8,7 @@ body {
 
 .search-box button{
     border-left: 0!important;
+    
 }
 
 .search-box i{
@@ -20,6 +21,7 @@ body {
 
 .search-box{
   width: 25vw!important;
+  
 }
 
 .card-design{
@@ -42,11 +44,18 @@ body {
       opacity: 0.10;
 }
 
-h4,h2,p, button{
+h4, button{
    position: relative;
    color: rgb(0, 0, 0);
 
 }
+
+#titleCase{
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #747d8c;
+}
+
 
 
 /* previous code */
