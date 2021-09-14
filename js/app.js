@@ -174,6 +174,12 @@ const displaySingleItem = data => {
 
   containerForItem.appendChild(div);
 }
+/* 
+1. Calculate star base on the ratings
+2. If the rating has a fraction value and the fraction value is greater than .5 then we consider it as full star
+3. If fraction value is belongs .1-.5 then we consider it as half star
+4. Like - 3.3 consider as 3.5 and 3.8 consider as 4 star.
+*/
 
 // calculate the number of star need to show according to ratings
 const starCount = number => {
