@@ -1,14 +1,15 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
+
 }
 
 .text-color{
-  color:#0a3d62;
+  color:#f0932b;
 }
 
 .search-field{
-  background-image: url(../image/bg.jpg)
+  background-image: url(../image/b.jpg);
 }
 
 .search-box button{
@@ -21,7 +22,7 @@ body {
 
 
 .button-color{
-  background-color:#079992!important;
+  background-color:#94bd03!important;
 }
 
 .search-box i{
@@ -45,7 +46,7 @@ body {
 
 .card-design::before {    
       content: "";
-      background-image: url(../image/card_bg.jpg);
+      background-image: url(../image/bg.jpg);
       background-size: cover;
       position: absolute;
       top: 0px;
