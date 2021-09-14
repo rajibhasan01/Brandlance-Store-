@@ -15,6 +15,10 @@ body {
     border-left: 0!important;
     
 }
+.search-box i:hover{
+    color: rgb(4, 75, 10);
+}
+
 
 .button-color{
   background-color:#079992!important;
@@ -101,17 +105,7 @@ h5, button{
 
 /* responsive for smaller device */
 @media only screen and (max-width: 768px) {
-  /* .cart {
-    width: 300px;
-    padding: 10px;
-    box-shadow: 10px 10px 20px gray;
-    border-radius: 5px;
-    margin-right: 30px;
-    position: fixed;
-  }
-  .cart-main {
-    padding-right: 10px;
-  } */
+
   .search-box{
   width: 80vw!important;
 }

@@ -193,7 +193,7 @@ const starCount = number => {
   }
 
   let starArray = [];
-  starArray.splice(0, starArray.length)
+  starArray.splice(0, starArray.length);
 
   for (i = 0; i < 5; i++) {
     if (ratingNumber) {
